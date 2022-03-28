@@ -1,0 +1,26 @@
+name: package-and-publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  package-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        source-url: https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test --verbosity normal --configuration Release --no-build
+    - name: Create package
+      run: dotnet pack --configuration Release RequestRateLimiter.Core --no-build --include-symbols
+    - name: Publish Nuget package
+      run: dotnet nuget push RequestRateLimiter.Core/bin/Release/*.nupkg --skip-duplicate --api-key ${{secrets.NUGET_TOKEN}}
