@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>RequestRateLimiter</PackageId>
+    <Title>RequestRateLimiter</Title>
+    <Authors>Petras Žukauskas</Authors>
+    <Description>Provides a configurable middleware for enforcing request rate limits.</Description>
+    <PackageTags>request rate limit middleware</PackageTags>
+    <PackageProjectUrl>https://github.com/TeleSoftas/request-rate-limiter</PackageProjectUrl>
+    <FileVersion>1.0.0</FileVersion>
+	<VersionPrefix>1.0.0</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>
