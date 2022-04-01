@@ -1,4 +1,4 @@
-# RequestRateLimiter
+# RequestRateLimiter ![Nuget](https://img.shields.io/nuget/v/RequestRateLimiter.svg) ![Build](https://img.shields.io/github/workflow/status/TeleSoftas/request-rate-limiter/build-and-test)
 This is an ASP.NET Core middleware that allows configuring request rate limitations on your web application.
 
 Request limits can be configured per route and/or per IP. 
